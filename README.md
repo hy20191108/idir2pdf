@@ -1,4 +1,4 @@
-idir2pdf (image zip to pdf)
+idir2pdf (image dir to pdf)
 =======
 This library convert zip file containing image file to pdf file.
 - fast convert
