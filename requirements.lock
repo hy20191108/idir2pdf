@@ -24,8 +24,8 @@ packaging==24.1
 pikepdf==9.0.0
     # via img2pdf
 pillow==10.3.0
-    # via img2pdf
     # via idir2pdf
+    # via img2pdf
     # via pikepdf
     # via pillow-heif
 pillow-avif-plugin==1.4.3

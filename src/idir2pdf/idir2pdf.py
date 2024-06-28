@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+import glob
 import io
 import os
 import sys
@@ -137,41 +138,32 @@ def is_jpg(filepath):
     return False
 
 
-def convert(zip_any, pdfpath=None, progress=True) -> bytes:
-    if isinstance(zip_any, bytes):
-        zipbytes = zip_any
-    else:
-        with open(zip_any, "rb") as f:
-            zipbytes = f.read()
+def convert(src_dirpath: str, pdfpath=None, progress=True) -> bytes:
+    print(os.path.isdir(src_dirpath))
+    filelist = []
+    for dirpath, dirnames, filenames in os.walk(src_dirpath):
+        if len(dirnames) >= 1:
+            continue
+        print(filenames)
+        for filename in filenames:
+            filelist.append(os.path.join(dirpath, filename))
 
-    zip_io = io.BytesIO(zipbytes)
-    # new_io = check_zip(zip_io)
-    # zip_io.close()
-    # zip_io = new_io
+    filelist = natsorted(filelist)
+
+    if progress:
+        filelist = tqdm.tqdm(filelist, desc="idir2pdf")
 
     dstbytes_list = []
 
-    with zipfile.ZipFile(zip_io) as z:
-        namelist = list(natsorted(z.namelist()))
+    for filepath in filelist:
+        tqdm.tqdm.write(filepath)
 
-        if progress:
-            namelist = tqdm.tqdm(namelist, desc="idir2pdf")
+        with open(filepath, "rb") as f:
+            srcbytes = f.read()
 
-        for name in namelist:
-            tqdm.tqdm.write(name)
-            if zipfile.Path(zip_io, name).is_dir():
-                continue
+        dstbytes = get_dstbytes(filepath, srcbytes)
 
-            srcbytes = z.read(name)
-
-            # if is_jpg(name):
-            #    dstbytes = srcbytes
-            # else:
-            dstbytes = get_dstbytes(name, srcbytes)
-
-            dstbytes_list.append(dstbytes)
-
-    zip_io.close()
+        dstbytes_list.append(dstbytes)
 
     pdfbytes = img2pdf.convert(dstbytes_list, layout_fun=layout_fun)
 
