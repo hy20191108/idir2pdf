@@ -14,25 +14,25 @@ colorama==0.4.6
 deprecated==1.2.14
     # via pikepdf
 img2pdf==0.5.1
-    # via izip2pdf
+    # via idir2pdf
 lxml==5.2.2
     # via pikepdf
 natsort==8.4.0
-    # via izip2pdf
+    # via idir2pdf
 packaging==24.1
     # via pikepdf
 pikepdf==9.0.0
     # via img2pdf
 pillow==10.3.0
     # via img2pdf
-    # via izip2pdf
+    # via idir2pdf
     # via pikepdf
     # via pillow-heif
 pillow-avif-plugin==1.4.3
-    # via izip2pdf
+    # via idir2pdf
 pillow-heif==0.16.0
-    # via izip2pdf
+    # via idir2pdf
 tqdm==4.66.4
-    # via izip2pdf
+    # via idir2pdf
 wrapt==1.16.0
     # via deprecated

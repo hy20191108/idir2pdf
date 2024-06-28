@@ -1,6 +1,6 @@
 [project]
-name = "izip2pdf"
-version = "0.1.6"
+name = "idir2pdf"
+version = "0.1.0"
 description = "convert zip file including image to pdf file"
 authors = [
     { name = "Yoshioka", email = "zwwp9976@gmail.com" }
@@ -17,7 +17,7 @@ readme = "README.md"
 requires-python = ">= 3.8"
 
 [project.scripts]
-izip2pdf = "izip2pdf.izip2pdf:main"
+idir2pdf = "idir2pdf.idir2pdf:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -31,7 +31,7 @@ dev-dependencies = []
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/izip2pdf"]
+packages = ["src/idir2pdf"]
 
 [project.urls]
-Homepage = "https://github.com/hy20191108/izip2pdf"
+Homepage = "https://github.com/hy20191108/idir2pdf"
