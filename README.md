@@ -29,7 +29,7 @@ Library
 
 The package can also be used as a library:
 
-```python
+<!-- ```python
 import idir2pdf
 
 # usecase 1
@@ -51,7 +51,7 @@ with open("input.zip", "rb") as f:
 pdf_bin = idir2pdf.convert(zip_bin)
 with open("output.pdf", "wb") as f:
     f.write(pdf_bin)
-```
+``` -->
 
 
 # Reference
