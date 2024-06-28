@@ -1,6 +1,6 @@
 idir2pdf (image dir to pdf)
 =======
-This library convert zip file containing image file to pdf file.
+This library convert image file in dir to pdf file.
 - fast convert
 - pdf page width is same
 - This library convert on memory, not use tmp folder.
@@ -11,15 +11,11 @@ Support image format in zip
 Usage
 -----
 
-	$ idir2pdf sample1.zip
-    $ idir2pdf sample2.zip sample3.zip
+	$ idir2pdf sample_dir1
+    $ idir2pdf sample_dir2 sample_dir3
 
 
-As result, this library make sample1.pdf sample2.pdf sample3.pdf
-
-In the case of Linux environment, you can use
-
-	$ idir2pdf sample*.zip
+As result, this library make sample_dir1.pdf sample_dir2.pdf sample_dir3.pdf
 
 Installation
 ------------
