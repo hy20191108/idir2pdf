@@ -183,13 +183,13 @@ def convert(zip_any, pdfpath=None, progress=True) -> bytes:
 
 
 def main() -> None:
-    for zippath in tqdm.tqdm(sys.argv[1:], desc="process"):
-        tqdm.tqdm.write(zippath)
-        pdfpath = os.path.splitext(zippath)[0] + ".pdf"
+    for dirpath in tqdm.tqdm(sys.argv[1:], desc="process"):
+        tqdm.tqdm.write(dirpath)
+        pdfpath = dirpath + ".pdf"
         if os.path.isfile(pdfpath):
             continue
         try:
-            convert(zippath, pdfpath, progress=True)
+            convert(dirpath, pdfpath, progress=True)
         except KeyboardInterrupt:
             exit()
 
