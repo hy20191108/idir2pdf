@@ -142,8 +142,8 @@ def convert(src_dirpath: str, pdfpath=None, progress=True) -> bytes:
     print(os.path.isdir(src_dirpath))
     filelist = []
     for dirpath, dirnames, filenames in os.walk(src_dirpath):
-        if len(dirnames) >= 1:
-            continue
+        # if len(dirnames) >= 1:
+        #     continue
         print(filenames)
         for filename in filenames:
             filelist.append(os.path.join(dirpath, filename))
