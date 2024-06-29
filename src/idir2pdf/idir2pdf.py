@@ -177,7 +177,7 @@ def convert(src_dirpath: str, pdfpath=None, progress=True) -> bytes:
 def main() -> None:
     for dirpath in tqdm.tqdm(sys.argv[1:], desc="process"):
         tqdm.tqdm.write(dirpath)
-        pdfpath = dirpath + ".pdf"
+        pdfpath = os.path.abspath(dirpath) + ".pdf"
         if os.path.isfile(pdfpath):
             continue
         try:
